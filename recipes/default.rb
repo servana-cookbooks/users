@@ -86,7 +86,9 @@ node["users"].each do |u|
   if u['grant_sudo']
   	node.set['authorization']['sudo']['users'] << u
   end
-  	
+
+  execute "passwd -l #{u['username']}"
+  
   	#default['authorization']['sudo']['groups'] = Array.new 
 	  #default['authorization']['sudo']['users'] = Array.new
 
