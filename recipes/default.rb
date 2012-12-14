@@ -19,7 +19,7 @@ node["groups"].each do |g|
 	  system g['is_system']
 	end 
 
-	if u['grant_sudo']
+	if g['grant_sudo']
   	node.set['authorization']['sudo']['groups'] <<  g['name']
   end
 
