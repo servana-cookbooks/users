@@ -93,6 +93,6 @@ node["users"].each do |u|
 end
 
 if node['authorization']['sudo']['users'].length > 0 || node['authorization']['sudo']['groups'].length > 0
-	include_recipe 'users::sudoers'
+	include_recipe 'users::sudo'
 end
 
