@@ -66,7 +66,7 @@ node["users"].each do |u|
   if u['ssh_keys']
 
     template "#{home_dir}/.ssh/authorised_keys" do
-     source "authorized_keys.erb"
+     source "authorised_keys.erb"
      owner u['username']
      group u['username']
      mode "0600"
