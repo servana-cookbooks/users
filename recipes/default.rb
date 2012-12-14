@@ -20,7 +20,7 @@ node["groups"].each do |g|
 	end 
 
 	if g['grant_sudo']
-  	node.set['authorization']['sudo']['groups']['#{g["name"]}'] = g
+  	node.set['authorization']['sudo']['groups']['#{g["name"]}'] = g["name"]
   end
 
 end
@@ -84,7 +84,7 @@ node["users"].each do |u|
   end
 
   if u['grant_sudo']
-  	node.set['authorization']['sudo']['users']['#{u["username"]}'] = u
+  	node.set['authorization']['sudo']['users']['#{u["username"]}'] = u["username"]
   end
   	
   	#default['authorization']['sudo']['groups'] = Array.new 
