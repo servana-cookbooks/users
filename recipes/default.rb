@@ -58,8 +58,8 @@ node["users"].each do |u|
   end
 
   directory "#{home_dir}/.ssh" do
-    owner u['id']
-    group u['gid'] || u['id']
+    owner u['username']
+    group u['username']
     mode "0700"
   end
 
@@ -88,7 +88,7 @@ node["users"].each do |u|
   end
 
   execute "passwd -l #{u['username']}"
-  
+
   	#default['authorization']['sudo']['groups'] = Array.new 
 	  #default['authorization']['sudo']['users'] = Array.new
 
