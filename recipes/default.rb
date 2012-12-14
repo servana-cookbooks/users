@@ -89,4 +89,7 @@ node["users"].each do |u|
 
 end
 
-include_recipe 'users::sudoers'
+if node['authorization']['sudo']['users'].length > 0 || node['authorization']['sudo']['groups'].length > 0
+	include_recipe 'users::sudoers'
+end
+
