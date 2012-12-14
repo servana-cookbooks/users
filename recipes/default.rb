@@ -20,7 +20,7 @@ node["groups"].each do |g|
 	end 
 
 	if g['grant_sudo']
-  	node.set['authorization']['sudo']['groups']['#{g["name"]}'] = g["name"]
+  	node.set['authorization']['sudo']['groups'] << g
   end
 
 end
@@ -84,15 +84,15 @@ node["users"].each do |u|
   end
 
   if u['grant_sudo']
-  	node.set['authorization']['sudo']['users']['#{u["username"]}'] = u["username"]
+  	node.set['authorization']['sudo']['users'] << u
   end
   	
   	#default['authorization']['sudo']['groups'] = Array.new 
-	#default['authorization']['sudo']['users'] = Array.new
+	  #default['authorization']['sudo']['users'] = Array.new
 
 end
 
-if node['authorization']['sudo']['users'].length > 0 || node['authorization']['sudo']['groups'].length > 0
-	include_recipe 'users::sudo'
-end
+#if node['authorization']['sudo']['users'].length > 0 || node['authorization']['sudo']['groups'].length > 0#
+#	include_recipe 'users::sudo'
+#end
 
