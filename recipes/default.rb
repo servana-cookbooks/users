@@ -19,9 +19,9 @@ if node["groups"]
   	  system g['is_system']
   	end 
 
-  	if g['grant_sudo']
-    	node.set['authorization']['sudo']['groups'] << g
-    end
+  	#if g['grant_sudo']
+    #	node.set['authorization']['sudo']['groups'] << g
+    #end
   end
 end
 
@@ -86,9 +86,9 @@ if node["users"]
   	end 
     end
 
-    if u['grant_sudo']
-    	node.set['authorization']['sudo']['users'] << u
-    end
+    #if u['grant_sudo']
+    #	node.set['authorization']['sudo']['users'] << u
+    #end
 
     execute "passwd -l #{u['username']}"
 
